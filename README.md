@@ -9,5 +9,5 @@ hadoop-3.3.0
 
 spark-3.3.2
 
-zookeeper 3.4.8-1
-(설치 방법:https://www.devmanuals.net/install/ubuntu/ubuntu-16-04-LTS-Xenial-Xerus/how-to-install-zookeeper.html)
+zookeeper 3.7.1
+(설치 방법:https://phoenixnap.com/kb/install-apache-zookeeper)
