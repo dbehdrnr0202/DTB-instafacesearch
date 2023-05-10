@@ -75,18 +75,20 @@ source ~/.bashrc
 ● python 3.11.3  
 https://dlehdgml0480.tistory.com/8  
 
+1. 기본 프로그램들 설치  
 sudo apt-get install build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev  
 
+2.  파이썬 다운로드 및 설치
 cd /opt  
 sudo wget https://www.python.org/ftp/python/3.11.3/Python-3.11.3.tgz  
 sudo tar -xzf Python-3.11.3.tgz  
-
 cd Python-3.11.3  
 sudo ./configure --enable-optimizations  
 sudo make altinstall  
 update-alternatives --install /usr/bin/python python /usr/local/bin/python3.11 1  
 
-sudo apt install python3-pip  
+3. pip 설치
+python -m ensurepip --default-pip  
 
 $ pip install --upgrade pip 할 때 오류나면  
 $ pip install --upgrade pip==20.3으로 중간 단계를 거치고 업데이트하면 된다  
