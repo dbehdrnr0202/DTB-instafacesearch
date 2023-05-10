@@ -93,13 +93,13 @@ ln -s /usr/local/bin/pip3.11 /usr/bin/pip
 
 */
 
-● python 3.5.1
+● python 3.5.1  
 
-sudo apt-get install python3-pip
-sudo ln -s /usr/bin/python3 /usr/bin/python
-sudo ln -s /usr/bin/pip3 /usr/bin/pip
+sudo apt-get install python3-pip  
+sudo ln -s /usr/bin/python3 /usr/bin/python  
+sudo ln -s /usr/bin/pip3 /usr/bin/pip  
 
-python -m pip install --upgrade pip==20.3
-python -m pip install --upgrade pip
-python -m pip --version
-> 여기서 pip 20.3.4인 것을 확인
+python -m pip install --upgrade pip==20.3  
+python -m pip install --upgrade pip  
+python -m pip --version  
+> 여기서 pip 20.3.4인 것을 확인  
