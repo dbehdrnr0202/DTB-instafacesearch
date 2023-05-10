@@ -72,6 +72,7 @@ sudo vi ~/.bashrc
 	------------  
 source ~/.bashrc  
 
+/*
 ● python 3.11.3  
 https://dlehdgml0480.tistory.com/8  
 
@@ -89,3 +90,16 @@ sudo make altinstall
 3. 기본 python을 최신 버전으로 변경  
 sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.11 1  
 ln -s /usr/local/bin/pip3.11 /usr/bin/pip  
+
+*/
+
+● python 3.5.1
+
+sudo apt-get install python3-pip
+sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+
+python -m pip install --upgrade pip==20.3
+python -m pip install --upgrade pip
+python -m pip --version
+> 여기서 pip 20.3.4인 것을 확인
