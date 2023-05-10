@@ -85,11 +85,7 @@ sudo tar -xzf Python-3.11.3.tgz
 cd Python-3.11.3  
 sudo ./configure --enable-optimizations  
 sudo make altinstall  
-update-alternatives --install /usr/bin/python python /usr/local/bin/python3.11 1  
 
-3. pip 설치
-python -m ensurepip --default-pip  
-
-$ pip install --upgrade pip 할 때 오류나면  
-$ pip install --upgrade pip==20.3으로 중간 단계를 거치고 업데이트하면 된다  
-pip 버전 차이가 너무 심해서 나는 오류인듯  
+3. 기본 python을 최신 버전으로 변경
+sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.11 1  
+ln -s /usr/local/bin/pip3.11 /usr/bin/pip  
