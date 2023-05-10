@@ -44,3 +44,6 @@ $ cd /opt/zookeeper
 $ sudo bin/zkServer.sh start
 $ sudo bin/zkCli.sh -server 127.0.0.1:2181
 $ sudo bin/zkServer.sh stop
+
+python 3.11.3
+https://dlehdgml0480.tistory.com/8
