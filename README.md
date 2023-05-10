@@ -86,6 +86,6 @@ cd Python-3.11.3
 sudo ./configure --enable-optimizations  
 sudo make altinstall  
 
-3. 기본 python을 최신 버전으로 변경
+3. 기본 python을 최신 버전으로 변경  
 sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.11 1  
 ln -s /usr/local/bin/pip3.11 /usr/bin/pip  
