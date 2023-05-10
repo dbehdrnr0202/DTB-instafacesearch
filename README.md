@@ -47,3 +47,7 @@ $ sudo bin/zkServer.sh stop
 
 python 3.11.3
 https://dlehdgml0480.tistory.com/8
+
+$ pip install --upgrade pip 할 때 오류나면
+$ pip install --upgrade pip==20.3으로 중간 단계를 거치고 업데이트하면 된다
+pip 버전 차이가 너무 심해서 나는 오류인듯
