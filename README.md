@@ -6,8 +6,10 @@
 ● OS : ubuntu 16.04.7
 
 ● hadoop-3.3.0
+(실습 2장 교재 참고)
 
 ● spark-3.3.2
+(실습 5장 교재 참고)
 
 ● zookeeper 3.7.1  
 (설치 방법 출처:https://phoenixnap.com/kb/install-apache-zookeeper)
@@ -37,7 +39,7 @@ dataDir = /data/zookeeper
 clientPort = 2181  
 initLimit = 5  
 syncLimit = 2  
-----------------------------  
+----------  
 
 3. execute zookeeper  
 $ cd /opt/zookeeper  
