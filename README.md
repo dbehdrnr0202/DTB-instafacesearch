@@ -3,13 +3,13 @@
 
 환경
 
-OS : ubuntu 16.04.7
+● OS : ubuntu 16.04.7
 
-hadoop-3.3.0
+● hadoop-3.3.0
 
-spark-3.3.2
+● spark-3.3.2
 
-zookeeper 3.7.1  
+● zookeeper 3.7.1  
 (설치 방법 출처:https://phoenixnap.com/kb/install-apache-zookeeper)
 
 0. java installaion test  
@@ -45,7 +45,7 @@ $ sudo bin/zkServer.sh start
 $ sudo bin/zkCli.sh -server 127.0.0.1:2181  
 $ sudo bin/zkServer.sh stop  
 
-flume 1.11.0  
+● flume 1.11.0  
 
 sudo wget https://dlcdn.apache.org/flume/1.11.0/apache-flume-1.11.0-bin.tar.gz --no-check-certificate  
 sudo tar -vxzf apache-flume*  
@@ -53,9 +53,9 @@ sudo tar -vxzf apache-flume*
 sudo cp flume-conf* flume-conf.properties  
 sudo cp flume-env.sh.* flume-env.sh  
 sudo vi flume-env.sh  
-	---(edit)---
-	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-	------------
+	---(edit)---  
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64  
+	------------  
 sudo vi ~/.profile  
 	---(edit)---  
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64  
@@ -70,7 +70,7 @@ sudo vi ~/.bashrc
 	------------  
 source ~/.bashrc  
 
-python 3.11.3  
+● python 3.11.3  
 https://dlehdgml0480.tistory.com/8  
 
 $ pip install --upgrade pip 할 때 오류나면  
