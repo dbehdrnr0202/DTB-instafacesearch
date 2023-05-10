@@ -84,6 +84,9 @@ sudo tar -xzf Python-3.11.3.tgz
 cd Python-3.11.3  
 sudo ./configure --enable-optimizations  
 sudo make altinstall  
+update-alternatives --install /usr/bin/python python /usr/local/bin/python3.11 1  
+
+sudo apt install python3-pip  
 
 $ pip install --upgrade pip 할 때 오류나면  
 $ pip install --upgrade pip==20.3으로 중간 단계를 거치고 업데이트하면 된다  
