@@ -29,7 +29,7 @@ $ sudo mkdir -p /data/zookeeper
 $ sudo chown -R zookeeper:zookeeper /data/zookeeper  
 $ cd /opt  
 $ sudo wget https://dlcdn.apache.org/zookeeper/zookeeper-3.7.1/apache-zookeeper-3.7.1-bin.tar.gz --no-check-certificate  
-$ sudo tar -xvf apache-zookeeper-3.7.1-bin  
+$ sudo tar -xvf apache-zookeeper-3.7.1-bin.tar.gz 
 $ sudo mv apache-zookeeper-3.7.1-bin zookeeper  
 $ sudo chown -R zookeeper:zookeeper /opt/zookeeper  
 $ sudo vi /opt/zookeeper/conf/zoo.cfg  
