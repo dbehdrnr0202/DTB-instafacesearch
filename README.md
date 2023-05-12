@@ -15,7 +15,7 @@
 (설치 방법 출처:https://phoenixnap.com/kb/install-apache-zookeeper)
 
 0. java installaion test  
-java --version
+java -version
 
 1. make superuser for zookeeper  
 $ sudo useradd zookeeper -m  
