@@ -1,0 +1,2 @@
+얼굴 인식 추출
+https://velog.io/@mcc919/CCTVWithAI-2021.07.17-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-Dlib-facerecognition-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%84%A4%EC%B9%98-%EC%96%BC%EA%B5%B4-%EC%9C%84%EC%B9%98-%EC%B0%BE%EA%B8%B0
