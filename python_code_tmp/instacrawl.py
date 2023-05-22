@@ -11,7 +11,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 WAIT_SEC = 3
-IMG_NUM = 500
+IMG_NUM = 1000
 
 def login(driver, id, pw):
     driver.get("https://www.instagram.com/accounts/login/")
