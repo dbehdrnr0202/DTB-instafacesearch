@@ -1,2 +1,9 @@
 
-*.jpg
+*.json
+*.sqlite
+*.bin
+*.vsidx
+*.lock
+.vs/DTB-instafacesearch/v17/.wsuo
+python_code_tmp/.vs/python_code_tmp/v17/.wsuo
+python_code_tmp/img/*

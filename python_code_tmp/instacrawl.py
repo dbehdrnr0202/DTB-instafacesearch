@@ -10,7 +10,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-WAIT_SEC = 3
+img_folder = "C:/GITHUB/DTB-instafacesearch/python_code_tmp"
+WAIT_SEC = 5
 IMG_NUM = 1000
 
 def login(driver, id, pw):
@@ -34,10 +35,10 @@ def img_download(driver, name, url):
     driver.get(url)
 
     index = 0
-    if not os.path.isdir('./img'):
-        os.mkdir('./img')
-    if not os.path.isdir(f'./img/{name}'):
-        os.mkdir(f'./img/{name}')
+    if not os.path.isdir(f'{img_folder}/img'):
+        os.mkdir(f'{img_folder}/img')
+    if not os.path.isdir(f'{img_folder}/img/{name}'):
+        os.mkdir(f'{img_folder}/img/{name}')
 
     #스크롤 내리기 이동 전 위치
     scroll_location = driver.execute_script("return document.body.scrollHeight")
@@ -51,11 +52,12 @@ def img_download(driver, name, url):
         imgdivs = driver.find_elements(By.CLASS_NAME ,'_aagv')
         for imgdiv in imgdivs:
             imgurl = imgdiv.find_element(By.CSS_SELECTOR, "img").get_attribute("src")
-            urlretrieve(imgurl, f'./img/{name}/{index}.jpg')
-            index += 1
+            if not os.path.exists(f'{img_folder}/img/{name}/{imgurl[60:100]}.jpg'):
+                urlretrieve(imgurl, f'{img_folder}/img/{name}/{imgurl[60:100]}.jpg')
+                index += 1
 
-            if index > IMG_NUM: is_crawling_continue = False
-            else: print(f"{name}/ index: {index}/{IMG_NUM}")
+                if index > IMG_NUM: is_crawling_continue = False
+                else: print(f"{name}/ index: {index}/{IMG_NUM}")
         
         scroll_height = driver.execute_script("return document.body.scrollHeight")
 
@@ -66,9 +68,9 @@ def img_download(driver, name, url):
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 
-login(driver, 'id', 'pw') # 여기다가 id pw 직접 입력하면 됨
+login(driver, 'trevel_1959', 'kmj838917') # 여기다가 id pw 직접 입력하면 됨
 
-with open("accounts.txt") as accounts:
+with open(f"{img_folder}/accounts.txt") as accounts:
     while True:
         line = accounts.readline()
         if not line: break
