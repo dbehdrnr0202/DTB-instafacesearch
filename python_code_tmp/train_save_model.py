@@ -9,7 +9,7 @@ from pyspark.ml.image import ImageSchema
 import pyspark
 from pyspark.sql.functions import lit
 spark = SparkSession.builder \
-    .appName("dltest") \
+    .appName("train_save_model") \
     .master("spark://nn1:7077") \
     .config('spark.executor.instances', 2) \
     .config('spark.sql.execution.arrow.pyspark.enabled', True) \
@@ -19,7 +19,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 sc = spark.sparkContext
 sc
-
+# hdfs read
 jennie_image_df = ImageSchema.readImages("hdfs://localhost:9000/train/JENNIE_2/").withColumn("label", lit(0))
 jisoo_image_df = ImageSchema.readImages("hdfs://localhost:9000/train/JISOO_2/").withColumn("label", lit(1))
 lisa_image_df = ImageSchema.readImages("hdfs://localhost:9000/train/LISA_2/").withColumn("label", lit(2))
@@ -46,12 +46,6 @@ y2_df = lisa_test.unionAll(rose_test)
 test_df = y1_df.unionAll(y2_df)
 
 
-'''
-for member_index, member_df in enumerate(member_image_df):
-    train_df = train_member_df[member_index].unionAll(pd.DataFrame(train_member_df[member_index]))
-    test_df = test_member_df[member_index].unionAll(pd.DataFrame(test_member_df[member_index]))
-    
-'''
 train_df = train_df.repartition(100)
 test_df = test_df.repartition(100)
 
@@ -63,6 +57,8 @@ from sparkdl import DeepImageFeaturizer
 
 featurizer = DeepImageFeaturizer(inputCol="image", outputCol="features", modelName="InceptionV3")
 lr = LogisticRegression(maxIter=20, regParam=0.05, elasticNetParam=0.3, labelCol="label", featuresCol="features")
+#pipeline 1: featurizer(fitting model)
+#pipeline 2: save model
 p = Pipeline(stages=[featurizer, lr])
 p_model = p.fit(train_df)
 
@@ -75,7 +71,4 @@ print("test set accuracy:"+str(evaluator.evaluate(tested_df.select("prediction",
 lr_model = p_model
 lr_model.stages[1].write().overwrite().save('hdfs://localhost:9000/train/lr')
 
-
 #df = model.transform(train_images_df)
-
-
