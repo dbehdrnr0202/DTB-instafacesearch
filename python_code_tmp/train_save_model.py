@@ -1,6 +1,17 @@
 import os
+import argparse
+
 SUBMIT_ARGS = "--packages databricks:spark-deep-learning:1.0.0-spark2.3-s_2.11 pyspark-shell"
 os.environ["PYSPARK_SUBMIT_ARGS"] = SUBMIT_ARGS
+
+parser = argparse.ArgumentParser(description='arguments -i instance number, -m instance memory')
+parser.add_argument('-i', type=int, default=1)
+parser.add_argument('-m', default='4G')
+args = parser.parse_args()
+
+print('build spark session with:\n')
+print('\tinstance number: ', args.i)
+print('\tinstance memory: ', args.m)
 
 from PIL import Image, ImageDraw
 #from tensorflow.python.keras.applications.resnet50 import ResNet50
@@ -11,10 +22,10 @@ from pyspark.sql.functions import lit
 spark = SparkSession.builder \
     .appName("train_save_model") \
     .master("spark://nn1:7077") \
-    .config('spark.executor.instances', 2) \
+    .config('spark.executor.instances', args.i) \
     .config('spark.sql.execution.arrow.pyspark.enabled', True) \
     .config('spark.executor.core', '2') \
-    .config('spark.executor.memory', '4G') \
+    .config('spark.executor.memory', args.m) \
     .config('spark.ui.showConsoleProgress',True) \
     .getOrCreate()
 sc = spark.sparkContext
