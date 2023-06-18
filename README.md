@@ -15,40 +15,40 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
 1. 
 	```
     cd python_code_tmp
-	```  
+	```    
 2. 
    	```
    	sudo chmod -R 755 install_python_and_libraries.sh start.sh stop.sh test.sh train.sh
-   	```  
-	a. start.sh : start hadoop/spark  
-	b. stop.sh : stop hadoop/spark  
-   	c. train.sh -i executor_number -m executor_memory : model train/save to hdfs  
+   	```    
+    a. start.sh : start hadoop/spark  
+    b. stop.sh : stop hadoop/spark  
+    c. train.sh -i executor_number -m executor_memory : model train/save to hdfs  
    		usage : ```
 		"./train.sh -i 2 -m 4G" // train model with 2 executor instances and each executor will run in 4G memory
 		```  
-   	d. test.sh -i executor_number -m executor_memory : model load from hdfs and test image files  
+    d. test.sh -i executor_number -m executor_memory : model load from hdfs and test image files  
 		usage : same as train.sh  
-	e. install_python_and_libraries.sh : python 3.6.15 설치 및 필요 라이브러리 설치용 shell file  
+    e. install_python_and_libraries.sh : python 3.6.15 설치 및 필요 라이브러리 설치용 shell file    
 3.  ```
    	./install_python_and_libraries.sh
    	```  
 4. check version with ```python -V```  
-	must be 3.6.15  
-5.  크롤링을 했을 경우 img_crop에 파일이 추가된다.
+    must be 3.6.15    
+5.  크롤링을 했을 경우 img_crop에 파일이 추가된다.  
 6.  추가된 파일들을 통해 train을 하고 싶을 경우 train.sh를 실행한다  
 	train.sh는 img_crop에 저장되어있는 파일들을 hdfs의 train폴더 내부로 업로드한 뒤, train_save_model.py를 실행하여 모델을 학습시킨 뒤, hdfs/train/lr에 모델을 저장한다.
    	```
    	./train.sh
-   	```  
-7. python_code_tmp 내부에 test_img 폴더를 생성한 뒤, 테스트할 파일들을 올린다.
+   	```    
+7. python_code_tmp 내부에 test_img 폴더를 생성한 뒤, 테스트할 파일들을 올린다.  
 8.  test.sh를 실행하여 test_img내부에 존재하는 이미지 파일들을 hdfs에 올린 뒤, test_load_model.py가 실행되어 저장했던 모델을 갖고온 뒤, 이미지의 labeling을 진행한다.
    	```
    	./test.sh
-   	```  
+   	```    
 9. 모든 작업이 끝났을 경우 stop.sh를 통해 hadoop과 spark를 종료한다.
     ```
    	./stop.sh
-   	```  
+   	```    
 ----------  이전 ----------  
 
 
