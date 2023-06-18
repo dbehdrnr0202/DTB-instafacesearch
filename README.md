@@ -12,6 +12,7 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
 0. java, hadoop, spark install은 위의 버전으로 설치면 됨  
 
 이후 사용법  
+
 1. 
 	```
     cd python_code_tmp
