@@ -25,7 +25,8 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
     a. start.sh : start hadoop/spark  
     b. stop.sh : stop hadoop/spark  
     c. train.sh -i executor_number -m executor_memory : model train/save to hdfs  
-   		usage : ```
+   		usage : 
+		```
 		"./train.sh -i 2 -m 4G" // train model with 2 executor instances and each executor will run in 4G memory
 		```  
     d. test.sh -i executor_number -m executor_memory : model load from hdfs and test image files  
