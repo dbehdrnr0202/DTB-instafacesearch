@@ -3,27 +3,27 @@
 
 환경
 
-● OS : ubuntu 16.04.7
-● hadoop-2.7.1
-● spark-2.3.0
+● OS : ubuntu 16.04.7  
+● hadoop-2.7.1  
+● spark-2.3.0  
 
-git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
+git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git  
 
-0. java, hadoop, spark install은 위의 버전으로 설치면 됨
+0. java, hadoop, spark install은 위의 버전으로 설치면 됨  
 
-이후 사용법
-1. cd python_code_tmp
-2. sudo chmod -R 755 install_python_and_libraries.sh start.sh stop.sh test.sh train.sh
-	a. start.sh : start hadoop/spark
-	b. stop.sh : stop hadoop/spark
-   	c. train.sh -i executor_number -m executor_memory : model train/save to hdfs
-   		usage : "./train.sh -i 2 -m 4G" : train model with 2 executor instances and each executor will run in 4G memory
-   	d. test.sh -i executor_number -m executor_memory : model load from hdfs and test image files
-		usage : same as train.sh
-	e. install_python_and_libraries.sh : python 3.6.15 설치 및 필요 라이브러리 설치용 shell file
-3. ./install_python_and_libraries.sh
-4. check version with "python -V"
-	must be 3.6.15
+이후 사용법  
+1. cd python_code_tmp  
+2. sudo chmod -R 755 install_python_and_libraries.sh start.sh stop.sh test.sh train.sh  
+	a. start.sh : start hadoop/spark  
+	b. stop.sh : stop hadoop/spark  
+   	c. train.sh -i executor_number -m executor_memory : model train/save to hdfs  
+   		usage : "./train.sh -i 2 -m 4G" : train model with 2 executor instances and each executor will run in 4G memory  
+   	d. test.sh -i executor_number -m executor_memory : model load from hdfs and test image files  
+		usage : same as train.sh  
+	e. install_python_and_libraries.sh : python 3.6.15 설치 및 필요 라이브러리 설치용 shell file  
+3. ./install_python_and_libraries.sh  
+4. check version with "python -V"  
+	must be 3.6.15  
 
 
 ----------  이전 ----------  
