@@ -1,0 +1,9 @@
+python -m pip install h5py==2.10.0
+python -m pip install keras==2.1.5
+python -m pip install numpy==1.19.5
+python -m pip install pandas==1.1.5
+python -m pip install py4j==0.10.9.5
+python -m pip install sparkdl==0.2.2
+python -m pip install tensorflow==1.4.0
+python -m pip install tensorflowonspark==2.2.5
+python -m pip install pyspark==2.3.0
