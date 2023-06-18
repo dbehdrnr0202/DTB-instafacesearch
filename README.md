@@ -27,13 +27,14 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
     c. train.sh -i executor_number -m executor_memory : model train/save to hdfs  
    		usage :  
 		```
-		"./train.sh -i 2 -m 4G" // train model with 2 executor instances and each executor will run in 4G memory
+		./train.sh -i 2 -m 4G // train model with 2 executor instances and each executor will run in 4G memory
 		```  
     d. test.sh -i executor_number -m executor_memory : model load from hdfs and test image files  
 		usage : same as train.sh  
     e. install_python_and_libraries.sh : python 3.6.15 설치 및 필요 라이브러리 설치용 shell file    
 
-3.  ```
+3.  python 3.6.15 설치 및 필요 라이브러리들 설치
+	```
    	./install_python_and_libraries.sh
    	```  
 
