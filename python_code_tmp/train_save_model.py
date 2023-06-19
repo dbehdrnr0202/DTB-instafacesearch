@@ -21,7 +21,7 @@ import pyspark
 from pyspark.sql.functions import lit
 spark = SparkSession.builder \
     .appName("train_save_model") \
-    .master("spark://nn1:7077") \
+    .master("spark://master:7077") \
     .config('spark.executor.instances', args.i) \
     .config('spark.sql.execution.arrow.pyspark.enabled', True) \
     .config('spark.executor.core', '2') \
@@ -31,10 +31,10 @@ spark = SparkSession.builder \
 sc = spark.sparkContext
 sc
 # hdfs read
-jennie_image_df = ImageSchema.readImages("hdfs://localhost:9000/train/JENNIE_2/").withColumn("label", lit(0))
-jisoo_image_df = ImageSchema.readImages("hdfs://localhost:9000/train/JISOO_2/").withColumn("label", lit(1))
-lisa_image_df = ImageSchema.readImages("hdfs://localhost:9000/train/LISA_2/").withColumn("label", lit(2))
-rose_image_df = ImageSchema.readImages("hdfs://localhost:9000/train/ROSE_2/").withColumn("label", lit(3))
+jennie_image_df = ImageSchema.readImages("hdfs://master:9000/train/JENNIE_2/").withColumn("label", lit(0))
+jisoo_image_df = ImageSchema.readImages("hdfs://master:9000/train/JISOO_2/").withColumn("label", lit(1))
+lisa_image_df = ImageSchema.readImages("hdfs://master:9000/train/LISA_2/").withColumn("label", lit(2))
+rose_image_df = ImageSchema.readImages("hdfs://master:9000/train/ROSE_2/").withColumn("label", lit(3))
 
 '''
 local read
@@ -80,6 +80,6 @@ print("test set accuracy:"+str(evaluator.evaluate(tested_df.select("prediction",
 
 #saving the model
 lr_model = p_model
-lr_model.stages[1].write().overwrite().save('hdfs://localhost:9000/train/lr')
+lr_model.stages[1].write().overwrite().save('hdfs://master:9000/train/lr')
 
 #df = model.transform(train_images_df)
