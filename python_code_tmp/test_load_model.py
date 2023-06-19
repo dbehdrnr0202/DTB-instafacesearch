@@ -21,7 +21,7 @@ import pyspark
 from pyspark.sql.functions import lit
 spark = SparkSession.builder \
     .appName("load_model") \
-    .master("spark://nn1:7077") \
+    .master("spark://master:7077") \
     .config('spark.executor.instances', args.i) \
     .config('spark.sql.execution.arrow.pyspark.enabled', True) \
     .config('spark.executor.core', '2') \
@@ -30,7 +30,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 sc = spark.sparkContext
 sc
-testDF = ImageSchema.readImages("hdfs://localhost:9000/test/").withColumn("label", lit(0))
+testDF = ImageSchema.readImages("hdfs://master:9000/test/").withColumn("label", lit(0))
 
 from sparkdl.image import imageIO as imageIO
 from pyspark.ml.classification import LogisticRegressionModel
@@ -41,7 +41,7 @@ from sparkdl import DeepImageFeaturizer
 from pyspark.sql.functions import regexp_replace
 #load from hdfs 
 #models in hdfs://HDFS_SITE/train/lr
-lr_test = LogisticRegressionModel.load('hdfs://localhost:9000/train/lr/')
+lr_test = LogisticRegressionModel.load('hdfs://master:9000/train/lr/')
 featurizer_test = DeepImageFeaturizer(inputCol="image", outputCol="features", modelName="InceptionV3")
 
 p_lr_test = PipelineModel(stages=[featurizer_test, lr_test])
