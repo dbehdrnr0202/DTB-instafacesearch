@@ -9,13 +9,12 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-parser = argparse.ArgumentParser(description='arguments -i instagram_id, -p instagram_pw -d img_directory')
-parser.add_argument('-i', type=int)
-parser.add_argument('-p', type=str)
-parser.add_argument('-d', type=str, default='./crawling_img')
+parser = argparse.ArgumentParser(description='arguments instagram_id instagram_pw')
+parser.add_argument('id', type=str)
+parser.add_argument('pw', type=str)
 args = parser.parse_args()
 
-img_folder = args.d
+img_folder = './crawling_img'
 WAIT_SEC = 5
 IMG_NUM = 1000
 
@@ -73,8 +72,8 @@ def img_download(driver, name, url):
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 
-userId = args.i
-userPw = args.p
+userId = args.id
+userPw = args.pw
 
 login(driver, userId, userPw)
 
