@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" modified="2023-06-18T07:20:05.904Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="XGdWAhNIXy1naTfhXLQC" version="21.3.7" type="device">
+  <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
+    <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="E83_g_-iS7J6HBkElXjf-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="100" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-1" value="local storage" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="400" y="40" width="100" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="E83_g_-iS7J6HBkElXjf-1" vertex="1">
+          <mxGeometry x="45" y="80" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aM9ryv3xv72pqoxQDRHE-1" value="Machine Learning" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="100" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-3" value="user" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="580" y="40" width="100" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-4" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="E83_g_-iS7J6HBkElXjf-3" vertex="1">
+          <mxGeometry x="45" y="80" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-5" value="1. local에 파일 저장 및 요청" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="E83_g_-iS7J6HBkElXjf-4" target="E83_g_-iS7J6HBkElXjf-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="623" y="120" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="548" y="120" />
+            </Array>
+            <mxPoint x="458" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-6" value="2. HDFS에 이미지 적재" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" source="E83_g_-iS7J6HBkElXjf-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="140" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="363" y="140" />
+            </Array>
+            <mxPoint x="275" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aM9ryv3xv72pqoxQDRHE-5" value="HDFS" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="220" y="40" width="100" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-17" value="3. HDFS에 적재된 모델 load" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="269.5" y="145" as="sourcePoint" />
+            <Array as="points" />
+            <mxPoint x="96" y="145" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-18" value="5. test 결과 리턴" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1" target="E83_g_-iS7J6HBkElXjf-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="96" y="224" as="sourcePoint" />
+            <Array as="points" />
+            <mxPoint x="269.5" y="224" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-19" value="model test" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="100" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-20" value="4. HDFS에 적재된 test 이미지 load" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="269.5" y="190" as="sourcePoint" />
+            <Array as="points" />
+            <mxPoint x="96" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E83_g_-iS7J6HBkElXjf-16" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="86" y="145" width="10" height="95" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

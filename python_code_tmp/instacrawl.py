@@ -1,8 +1,6 @@
 import time
 import os
-
-#pip install selenium
-#pip install webdriver_manager
+import argparse
 
 from urllib.request import urlretrieve
 from selenium import webdriver
@@ -10,7 +8,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-img_folder = "C:/GITHUB/DTB-instafacesearch/python_code_tmp"
+
+parser = argparse.ArgumentParser(description='arguments -i instagram_id, -p instagram_pw -d img_directory')
+parser.add_argument('-i', type=int)
+parser.add_argument('-p', type=str)
+parser.add_argument('-d', type=str, default='./crawling_img')
+args = parser.parse_args()
+
+img_folder = args.d
 WAIT_SEC = 5
 IMG_NUM = 1000
 
@@ -68,7 +73,10 @@ def img_download(driver, name, url):
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 
-login(driver, 'trevel_1959', 'kmj838917') # 여기다가 id pw 직접 입력하면 됨
+userId = args.i
+userPw = args.p
+
+login(driver, userId, userPw)
 
 with open(f"{img_folder}/accounts.txt") as accounts:
     while True:

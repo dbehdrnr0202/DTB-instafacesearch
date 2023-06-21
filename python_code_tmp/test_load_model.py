@@ -20,7 +20,7 @@ from pyspark.ml.image import ImageSchema
 import pyspark
 from pyspark.sql.functions import lit
 spark = SparkSession.builder \
-    .appName("load_model") \
+    .appName("test_load_model") \
     .master("spark://master:7077") \
     .config('spark.executor.instances', args.i) \
     .config('spark.sql.execution.arrow.pyspark.enabled', True) \
