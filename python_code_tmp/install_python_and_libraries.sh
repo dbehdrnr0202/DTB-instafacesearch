@@ -15,3 +15,5 @@ python -m pip install sparkdl==0.2.2
 python -m pip install tensorflow==1.4.0
 python -m pip install tensorflowonspark==2.2.5
 python -m pip install pyspark==2.3.0
+python -m pip install selenium
+python -m pip install webdriver_manager
