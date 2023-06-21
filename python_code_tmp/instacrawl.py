@@ -2,9 +2,6 @@ import time
 import os
 import argparse
 
-#pip install selenium
-#pip install webdriver_manager
-
 from urllib.request import urlretrieve
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
