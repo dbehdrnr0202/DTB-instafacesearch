@@ -29,11 +29,6 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
 		```
 		./train.sh -i 2 -m 4G // train model with 2 executor instances and each executor will run in 4G memory
 		```  
-		option  
-		-i : executor instance number --default: 2
-		-m : executor instance memory --default: 4G
-		-s : spark_master --default: spark://master:7077  
-		-h : hdfs_location --default: hdfs://master:9000  
     d. test.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: model load from hdfs and test image files  
 		usage : same as train.sh  
     e. install_python_and_libraries.sh : python 3.6.15 설치 및 필요 라이브러리 설치용 shell file    
@@ -67,7 +62,12 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
 	train.sh는 img_crop에 저장되어있는 파일들을 hdfs의 train폴더 내부로 업로드한 뒤, train_save_model.py를 실행하여 모델을 학습시킨 뒤, hdfs/train/lr에 모델을 저장한다.
    	```
    	./train.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: model train/save to hdfs  
-   	```    
+   	```  
+	option  
+		-i : executor instance number --default: 2
+		-m : executor instance memory --default: 4G
+		-s : spark_master --default: spark://master:7077  
+		-h : hdfs_location --default: hdfs://master:9000  
 
 8. python_code_tmp 내부에 test_img 폴더를 생성한 뒤, 테스트할 파일들을 올린다.  
 
@@ -75,6 +75,11 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
    	```
    	./test.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: load model from hdfs and test images    
    	```    
+	option  
+		-i : executor instance number --default: 2
+		-m : executor instance memory --default: 4G
+		-s : spark_master --default: spark://master:7077  
+		-h : hdfs_location --default: hdfs://master:9000  
 
 10. 모든 작업이 끝났을 경우 stop.sh를 통해 hadoop과 spark를 종료한다.
     ```
