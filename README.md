@@ -24,12 +24,17 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
    	```    
     a. start.sh : start hadoop/spark  
     b. stop.sh : stop hadoop/spark  
-    c. train.sh -i executor_number -m executor_memory : model train/save to hdfs  
+    c. train.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: model train/save to hdfs  
    		usage :  
 		```
 		./train.sh -i 2 -m 4G // train model with 2 executor instances and each executor will run in 4G memory
 		```  
-    d. test.sh -i executor_number -m executor_memory : model load from hdfs and test image files  
+		option  
+		-i : executor instance number --default: 2
+		-m : executor instance memory --default: 4G
+		-s : spark_master --default: spark://master:7077  
+		-h : hdfs_location --default: hdfs://master:9000  
+    d. test.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: model load from hdfs and test image files  
 		usage : same as train.sh  
     e. install_python_and_libraries.sh : python 3.6.15 설치 및 필요 라이브러리 설치용 shell file    
 
@@ -41,22 +46,37 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
 4. check version with ```python -V```  
     must be 3.6.15    
 
-5.  크롤링을 했을 경우 img_crop에 파일이 추가된다.  
+5.  instacrawl.py를 실행하여 instagram 계정의 crawling을 진행한다.  
+	code/crawling_img/accounts.txt에 crawling을 할 대상의 계정 정보가 존재한다.  
+	이를 수정함으로써 crawling 대상을 추가/삭제할 수 있다.  
+	```
+	python instacrawl.py user_instagram_id user_instagram_password
+	```  
+	required parameter  
+	user_instagram_id : 사용자의 instagram id이다.  
+	user_instagram_passwod : 사용자의 instagram password이다.  
+	위의 정보를 제대로 입력해야 instagram에 접근하여 crawling을 제대로 수행할 수 있다.
+크롤링을 했을 경우 img_crop에 파일이 추가된다.  
 
-6.  추가된 파일들을 통해 train을 하고 싶을 경우 train.sh를 실행한다  
+6. face_crop.py를 실행하여 crawling한 sns 사진들에 존재하는 얼굴들을 추출하여 인물 얼굴 이미지를 저장한다.
+	```
+	python face_crop.py
+	```
+
+7.  추가된 파일들을 통해 train을 하고 싶을 경우 train.sh를 실행한다  
 	train.sh는 img_crop에 저장되어있는 파일들을 hdfs의 train폴더 내부로 업로드한 뒤, train_save_model.py를 실행하여 모델을 학습시킨 뒤, hdfs/train/lr에 모델을 저장한다.
    	```
-   	./train.sh
+   	./train.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: model train/save to hdfs  
    	```    
 
-7. python_code_tmp 내부에 test_img 폴더를 생성한 뒤, 테스트할 파일들을 올린다.  
+8. python_code_tmp 내부에 test_img 폴더를 생성한 뒤, 테스트할 파일들을 올린다.  
 
-8.  test.sh를 실행하여 test_img내부에 존재하는 이미지 파일들을 hdfs에 올린 뒤, test_load_model.py가 실행되어 저장했던 모델을 갖고온 뒤, 이미지의 labeling을 진행한다.
+9.  test.sh를 실행하여 test_img내부에 존재하는 이미지 파일들을 hdfs에 올린 뒤, test_load_model.py가 실행되어 저장했던 모델을 갖고온 뒤, 이미지의 labeling을 진행한다.
    	```
-   	./test.sh
+   	./test.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: load model from hdfs and test images    
    	```    
 
-9. 모든 작업이 끝났을 경우 stop.sh를 통해 hadoop과 spark를 종료한다.
+10. 모든 작업이 끝났을 경우 stop.sh를 통해 hadoop과 spark를 종료한다.
     ```
    	./stop.sh
    	```    
