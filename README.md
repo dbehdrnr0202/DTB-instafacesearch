@@ -64,8 +64,8 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
    	./train.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: model train/save to hdfs  
    	```  
 	option  
-		-i : executor instance number --default: 2
-		-m : executor instance memory --default: 4G
+		-i : executor instance number --default: 2  
+		-m : executor instance memory --default: 4G  
 		-s : spark_master --default: spark://master:7077  
 		-h : hdfs_location --default: hdfs://master:9000  
 
@@ -76,8 +76,8 @@ git clone https://github.com/dbehdrnr0202/DTB-instafacesearch.git
    	./test.sh -i executor_number -m executor_memory -s spark_master -h hdfs_location: load model from hdfs and test images    
    	```    
 	option  
-		-i : executor instance number --default: 2
-		-m : executor instance memory --default: 4G
+		-i : executor instance number --default: 2  
+		-m : executor instance memory --default: 4G  
 		-s : spark_master --default: spark://master:7077  
 		-h : hdfs_location --default: hdfs://master:9000  
 
