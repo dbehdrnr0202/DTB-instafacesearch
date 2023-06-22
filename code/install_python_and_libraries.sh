@@ -17,3 +17,5 @@ python -m pip install tensorflowonspark==2.2.5
 python -m pip install pyspark==2.3.0
 python -m pip install selenium
 python -m pip install webdriver_manager
+python -m pip install face_recognition
+python -m pip install PIL
