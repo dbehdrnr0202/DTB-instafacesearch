@@ -35,10 +35,10 @@ spark = SparkSession.builder \
 sc = spark.sparkContext
 sc
 # hdfs read
-jennie_image_df = ImageSchema.readImages(hdfs_location+"/train/JENNIE_2/").withColumn("label", lit(0))
-jisoo_image_df = ImageSchema.readImages(hdfs_location+"/train/JISOO_2/").withColumn("label", lit(1))
-lisa_image_df = ImageSchema.readImages(hdfs_location+"/train/LISA_2/").withColumn("label", lit(2))
-rose_image_df = ImageSchema.readImages(hdfs_location+"/train/ROSE_2/").withColumn("label", lit(3))
+jennie_image_df = ImageSchema.readImages(hdfs_location+"/train/JENNIE/").withColumn("label", lit(0))
+jisoo_image_df = ImageSchema.readImages(hdfs_location+"/train/JISOO/").withColumn("label", lit(1))
+lisa_image_df = ImageSchema.readImages(hdfs_location+"/train/LISA/").withColumn("label", lit(2))
+rose_image_df = ImageSchema.readImages(hdfs_location+"/train/ROSE/").withColumn("label", lit(3))
 
 '''
 local read
@@ -73,7 +73,7 @@ from sparkdl import DeepImageFeaturizer
 featurizer = DeepImageFeaturizer(inputCol="image", outputCol="features", modelName="InceptionV3")
 lr = LogisticRegression(maxIter=20, regParam=0.05, elasticNetParam=0.3, labelCol="label", featuresCol="features")
 #pipeline 1: featurizer(fitting model)
-#pipeline 2: save model
+#pipeline 2: logistic regression save model
 p = Pipeline(stages=[featurizer, lr])
 p_model = p.fit(train_df)
 
