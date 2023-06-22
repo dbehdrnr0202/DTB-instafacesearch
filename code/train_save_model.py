@@ -4,15 +4,19 @@ import argparse
 SUBMIT_ARGS = "--packages databricks:spark-deep-learning:1.0.0-spark2.3-s_2.11 pyspark-shell"
 os.environ["PYSPARK_SUBMIT_ARGS"] = SUBMIT_ARGS
 
-parser = argparse.ArgumentParser(description='arguments -i instance number, -m instance memory')
+parser = argparse.ArgumentParser(description='arguments -i instance_number -m instance_memory -s spark_master -h hdfs_save_location')
 parser.add_argument('-i', type=int, default=1)
 parser.add_argument('-m', default='4G')
+parser.add_argument('-s', default='spark://master:7077')
+parser.add_argument('-h', default='hdfs://master:9000')
 args = parser.parse_args()
 
 print('build spark session with:\n')
 print('\tinstance number: ', args.i)
 print('\tinstance memory: ', args.m)
-
+print('\tspark master: ', args.s)
+print('\thdfs model save location: ', args.h)
+hdfs_location = args.h
 from PIL import Image, ImageDraw
 #from tensorflow.python.keras.applications.resnet50 import ResNet50
 from pyspark.sql import SparkSession
@@ -21,7 +25,7 @@ import pyspark
 from pyspark.sql.functions import lit
 spark = SparkSession.builder \
     .appName("train_save_model") \
-    .master("spark://master:7077") \
+    .master(args.s) \
     .config('spark.executor.instances', args.i) \
     .config('spark.sql.execution.arrow.pyspark.enabled', True) \
     .config('spark.executor.core', '2') \
@@ -31,10 +35,10 @@ spark = SparkSession.builder \
 sc = spark.sparkContext
 sc
 # hdfs read
-jennie_image_df = ImageSchema.readImages("hdfs://master:9000/train/JENNIE_2/").withColumn("label", lit(0))
-jisoo_image_df = ImageSchema.readImages("hdfs://master:9000/train/JISOO_2/").withColumn("label", lit(1))
-lisa_image_df = ImageSchema.readImages("hdfs://master:9000/train/LISA_2/").withColumn("label", lit(2))
-rose_image_df = ImageSchema.readImages("hdfs://master:9000/train/ROSE_2/").withColumn("label", lit(3))
+jennie_image_df = ImageSchema.readImages(hdfs_location+"/train/JENNIE_2/").withColumn("label", lit(0))
+jisoo_image_df = ImageSchema.readImages(hdfs_location+"/train/JISOO_2/").withColumn("label", lit(1))
+lisa_image_df = ImageSchema.readImages(hdfs_location+"/train/LISA_2/").withColumn("label", lit(2))
+rose_image_df = ImageSchema.readImages(hdfs_location+"/train/ROSE_2/").withColumn("label", lit(3))
 
 '''
 local read
@@ -80,6 +84,6 @@ print("test set accuracy:"+str(evaluator.evaluate(tested_df.select("prediction",
 
 #saving the model
 lr_model = p_model
-lr_model.stages[1].write().overwrite().save('hdfs://master:9000/train/lr')
+lr_model.stages[1].write().overwrite().save(hdfs_location+"/train/lr")
 
 #df = model.transform(train_images_df)
