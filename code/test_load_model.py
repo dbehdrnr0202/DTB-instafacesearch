@@ -15,6 +15,8 @@ args = parser.parse_args()
 print('build spark session with:\n')
 print('\tinstance number: ', args.i)
 print('\tinstance memory: ', args.m)
+print('\tspark master: ', args.s)
+print('\thdfs model save location: ', args.h)
 hdfs_location=args.h
 from PIL import Image, ImageDraw
 #from tensorflow.python.keras.applications.resnet50 import ResNet50
